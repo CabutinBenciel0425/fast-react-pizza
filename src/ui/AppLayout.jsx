@@ -8,14 +8,16 @@ export default function AppLayout() {
   const isLoading = navigation.state === "loading";
 
   return (
-    <div className="layout">
+    <div className="h-screen-dynamic grid grid-rows-[auto_1fr_auto]">
       {isLoading && <Loader />}
 
       <Header />
 
-      <main>
-        <Outlet />
-      </main>
+      <div className="overflow-auto">
+        <main className="mx-auto max-w-3xl">
+          <Outlet />
+        </main>
+      </div>
 
       <CartOverview />
     </div>
